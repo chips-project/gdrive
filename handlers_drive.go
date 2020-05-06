@@ -9,9 +9,9 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/prasmussen/gdrive/auth"
-	"github.com/prasmussen/gdrive/cli"
-	"github.com/prasmussen/gdrive/drive"
+	"github.com/chips-project/gdrive/auth"
+	"github.com/chips-project/gdrive/cli"
+	"github.com/chips-project/gdrive/drive"
 )
 
 var ClientId string
