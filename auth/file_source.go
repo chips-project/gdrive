@@ -2,10 +2,11 @@ package auth
 
 import (
 	"encoding/json"
-	"golang.org/x/oauth2"
-	"golang.org/x/oauth2/google"
 	"io/ioutil"
 	"os"
+
+	"golang.org/x/oauth2"
+	"golang.org/x/oauth2/google"
 )
 
 func FileSource(path string, token *oauth2.Token, conf *oauth2.Config) oauth2.TokenSource {

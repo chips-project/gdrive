@@ -2,8 +2,9 @@ package main
 
 import (
 	"encoding/json"
-	"github.com/chips-project/gdrive/drive"
 	"os"
+
+	"github.com/chips-project/gdrive/drive"
 )
 
 const MinCacheFileSize = 5 * 1024 * 1024
