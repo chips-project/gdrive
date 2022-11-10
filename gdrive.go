@@ -153,6 +153,12 @@ func main() {
 						Description:  fmt.Sprintf("Set timeout in seconds, use 0 for no timeout. Timeout is reached when no data is transferred in set amount of seconds, default: %d", DefaultTimeout),
 						DefaultValue: DefaultTimeout,
 					},
+					cli.BoolFlag{
+						Name:        "quiet",
+						Patterns:    []string{"--quiet"},
+						Description: "Disable noisy stdout logging",
+						OmitValue:   true,
+					},
 				),
 			},
 		},
