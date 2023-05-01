@@ -9,6 +9,10 @@ import (
 	"golang.org/x/oauth2/google"
 )
 
+const (
+    scopePrefix  = "https://www.googleapis.com/auth/"
+)
+
 type authCodeFn func(string) func() string
 
 func NewFileSourceClient(conf *oauth2.Config, tokenFile string, authFn authCodeFn) (*http.Client, error) {
@@ -84,8 +88,8 @@ func AssembleClientCredentials(clientId, clientSecret string) *oauth2.Config {
 	return &oauth2.Config{
 		ClientID:     clientId,
 		ClientSecret: clientSecret,
-		Scopes:       []string{"https://www.googleapis.com/auth/drive"},
-		RedirectURL:  "urn:ietf:wg:oauth:2.0:oob",
+		Scopes:       []string{scopePrefix + "drive", scopePrefix + "drive.readonly", scopePrefix + "drive.file", scopePrefix + "drive.appfolder", scopePrefix + "drive.metadata.readonly"},
+		RedirectURL:  "http://localhost:1",
 		Endpoint: oauth2.Endpoint{
 			AuthURL:  "https://accounts.google.com/o/oauth2/auth",
 			TokenURL: "https://accounts.google.com/o/oauth2/token",
