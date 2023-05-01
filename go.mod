@@ -3,6 +3,7 @@ module github.com/chips-project/gdrive
 go 1.18
 
 require (
+	github.com/adrg/xdg v0.3.3 // indirect
 	github.com/sabhiram/go-gitignore v0.0.0-20210923224102-525f6e181f06
 	github.com/soniakeys/graph v0.0.0
 	golang.org/x/net v0.0.0-20220624214902-1bab6f366d9e
