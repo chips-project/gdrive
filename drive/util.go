@@ -22,9 +22,9 @@ func formatList(a []string) string {
 
 func formatSize(bytes int64, forceBytes bool) string {
 	if bytes == 0 {
-		return "0"
+		return fmt.Sprintf("%v B", bytes)
 	} else if bytes < 0 {
-		return "Unlimited"
+		return fmt.Sprintf("Unlimited")
 	}
 
 	if forceBytes {
