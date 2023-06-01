@@ -20,13 +20,14 @@ func (self *Drive) About(args AboutArgs) (err error) {
 	user := about.User
 	quota := about.StorageQuota
 
-	fmt.Fprintf(args.Out, "User: %s, %s\n", user.DisplayName, user.EmailAddress)
-	fmt.Fprintf(args.Out, "Used: %s\n", formatSize(quota.Usage, args.SizeInBytes))
+	fmt.Fprintf(args.Out, "User: %s, %s\n", user.DisplayName, user.EmailAddress) 
+	fmt.Fprintf(args.Out, "Personal Disk Quota Used: %s\n", formatSize(quota.UsageInDrive, args.SizeInBytes)) // UsageInDrive: The usage by all files in Google Drive.
+	fmt.Fprintf(args.Out, "Total Disk Quota Used: %s\n", formatSize(quota.Usage, args.SizeInBytes)) // Usage: The total usage across all services.
 	if quota.Limit > 0 {
-		fmt.Fprintf(args.Out, "Free: %s\n", formatSize(quota.Limit-quota.Usage, args.SizeInBytes))
-		fmt.Fprintf(args.Out, "Total: %s\n", formatSize(quota.Limit, args.SizeInBytes))
+		fmt.Fprintf(args.Out, "Disk Free: %s\n", formatSize(quota.Limit-quota.Usage, args.SizeInBytes))
+		fmt.Fprintf(args.Out, "Disk Total: %s\n", formatSize(quota.Limit, args.SizeInBytes))
 	} else {
-		fmt.Println("Total: Unlimited")
+		fmt.Println("Disk Total: Unlimited")
 	}
 	fmt.Fprintf(args.Out, "Max upload size: %s\n", formatSize(about.MaxUploadSize, args.SizeInBytes))
 	return
